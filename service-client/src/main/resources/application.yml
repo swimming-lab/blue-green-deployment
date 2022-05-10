@@ -1,0 +1,27 @@
+server:
+  port: 0
+  runtime-color: blue
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#    instance-id: ${spring.application.name}:${server.runtime-color}
+    initial-status: out_of_service
+  client:
+    eureka-server-port: 8761
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
+    enabled: true
+spring:
+  application:
+    name: service-client
+zookeeper:
+  server:
+    port: 2181
+    timeout: 60000
+    hostname: localhost:${zookeeper.server.port}
+    node:
+      leader: /leader
+      active-color: /active_color
+      blue: /blue
+      green: /green
