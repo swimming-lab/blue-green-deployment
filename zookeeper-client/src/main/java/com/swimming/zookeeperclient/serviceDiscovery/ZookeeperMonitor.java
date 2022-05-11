@@ -155,7 +155,7 @@ public class ZookeeperMonitor implements Watcher, AsyncCallback.StatCallback, As
             ).collect(Collectors.toList());
 
             logger.info("path={}", path);
-            logger.info("prevWorkers={}", prevBlueChildrens);
+            logger.info("prevBlueChildrens={}", prevBlueChildrens);
             logger.info("currentWorkers={}", children);
             logger.info("noneMatchList={}", noneMatchList);
 
@@ -169,7 +169,7 @@ public class ZookeeperMonitor implements Watcher, AsyncCallback.StatCallback, As
             ).collect(Collectors.toList());
 
             logger.info("path={}", path);
-            logger.info("prevWorkers={}", prevGreenChildrens);
+            logger.info("prevGreenChildrens={}", prevGreenChildrens);
             logger.info("currentWorkers={}", children);
             logger.info("noneMatchList={}", noneMatchList);
 

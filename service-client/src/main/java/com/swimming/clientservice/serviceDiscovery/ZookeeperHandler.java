@@ -27,7 +27,7 @@ public class ZookeeperHandler implements Watcher, SmartApplicationListener {
     private final String blueNode;
     private final String greenNode;
     private final String runtimeColor;
-    private String registerNode;
+    private String runtimeColorNode;
 
     private AtomicInteger port = new AtomicInteger(0);
 
@@ -70,13 +70,13 @@ public class ZookeeperHandler implements Watcher, SmartApplicationListener {
         try {
             logger.info("runtime-color={}", runtimeColor);
             if (runtimeColor.equals(ActiveColor.blue.name())) {
-                registerNode = blueNode;
+                runtimeColorNode = blueNode;
             } else {
-                registerNode = greenNode;
+                runtimeColorNode = greenNode;
             }
 
             zooKeeper.create(
-                    new StringBuilder(registerNode).append("/").append(eurekaHandler.getInstanceId()).toString(),
+                    new StringBuilder(runtimeColorNode).append("/").append(eurekaHandler.getInstanceId()).toString(),
                     new StringBuilder("127.0.0.1:").append(port.get()).toString().getBytes(StandardCharsets.UTF_8),
                     ZooDefs.Ids.OPEN_ACL_UNSAFE,
                     CreateMode.EPHEMERAL);

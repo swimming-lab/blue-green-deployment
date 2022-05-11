@@ -18,11 +18,10 @@ eureka:
     eureka-server-port: 8761
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
+    registry-fetch-interval-seconds: 10
+    disable-delta: true
 management:
   endpoints:
     web:
       exposure:
         include: "gateway"
-#  endpoint:
-#    gateway:
-#      enabled: true # default:true

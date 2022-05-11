@@ -5,7 +5,6 @@ eureka:
   instance:
     hostname: localhost
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-#    instance-id: ${spring.application.name}:${server.runtime-color}
     initial-status: out_of_service
   client:
     eureka-server-port: 8761
